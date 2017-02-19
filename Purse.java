@@ -30,8 +30,8 @@ public class Purse {
 
 	// Selection of objects in the purse.
 
-	private List<Coin> money;
-
+	private List<Valuable> money;
+ 
 	/**
 
 	 * Capacity is maximum number of coin the purse can contain. Capacity is set
@@ -102,7 +102,7 @@ public class Purse {
 
 		double balance = 0;
 
-		for (Coin c : this.money) {
+		for (Valuable c : this.money) {
 
 			balance += c.getValue();
 
@@ -168,7 +168,7 @@ public class Purse {
 
 	 */
 
-	public boolean insert(Coin coin) {
+	public boolean insert(Valuable coin) {
 
 		if (coin.getValue() <= 0)
 
@@ -210,13 +210,13 @@ public class Purse {
 
 	 */
 
-	public Coin[] withdraw(double amount) {
+	public Valuable[] withdraw(double amount) {
 
-		List<Coin> templist = new ArrayList<>();
+		List<Valuable> templist = new ArrayList<>();
 
 		for (int i = this.money.size() - 1; i >= 0; i--) {
 
-			Coin c = this.money.get(i);
+			Valuable c = this.money.get(i);
 
 			if (c.getValue() <= amount) {
 
@@ -230,13 +230,13 @@ public class Purse {
 
 		if (amount == 0) {
 
-			for (Coin tempc : templist) {
+			for (Valuable tempc : templist) {
 
 				this.money.remove(tempc);
 
 			}
 
-			Coin[] withdraw = new Coin[templist.size()];
+			Valuable[] withdraw = new Valuable[templist.size()];
 
 			templist.toArray(withdraw);
 

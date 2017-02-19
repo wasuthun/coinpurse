@@ -198,7 +198,7 @@ public class PurseTest {
 
 			assertEquals(value, purse.getBalance(), TOL);
 
-			Coin[] result = purse.withdraw(value);
+			Valuable[] result = purse.withdraw(value);
 
 			assertTrue(result != null);
 
@@ -246,13 +246,13 @@ public class PurseTest {
 
 		assertEquals(10, purse.count());
 
-		Coin[] wd1 = purse.withdraw(amount1);
+		Valuable[] wd1 = purse.withdraw(amount1);
 
 		assertEquals(amount1, sumValue(wd1), TOL);
 
 		assertEquals(amount2, purse.getBalance(), TOL);
 
-		Coin[] wd2 = purse.withdraw(amount2);
+		Valuable[] wd2 = purse.withdraw(amount2);
 
 		assertEquals(0, purse.getBalance(), TOL);
 
@@ -290,7 +290,7 @@ public class PurseTest {
 
 	 * 
 
-	 * @param coin
+	 * @param wd1
 
 	 *            array of coin
 
@@ -298,15 +298,15 @@ public class PurseTest {
 
 	 */
 
-	private double sumValue(Coin[] coin) {
+	private double sumValue(Valuable[] wd1) {
 
-		if (coin == null)
+		if (wd1 == null)
 
 			return 0;
 
 		double sum = 0;
 
-		for (Coin c : coin)
+		for (Valuable c : wd1)
 
 			if (c != null)
 

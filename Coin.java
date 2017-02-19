@@ -7,7 +7,7 @@
  * @author Wasuthun wanaphongthipakorn
  */
 
-public class Coin implements Comparable<Coin>
+public class Coin implements Valuable
 {
 	public static final String DEFAULT_CURRENCY = "Baht";
 	/** Value of the coin. */
@@ -113,8 +113,8 @@ public class Coin implements Comparable<Coin>
 	 *         -1 if this coin has lesser value
 
 	 */
-public int compareTo(Coin p){
-	return (int)Math.signum(this.value-p.value);
+public int compareTo(Valuable p){
+	return (int)Math.signum(this.value-p.getValue());
 }
  /*
   * Return a String describe the coin value curreny
@@ -126,6 +126,7 @@ public int compareTo(Coin p){
 		return this.value+" "+this.currency;
 	}
 
+	
 	
 
 		

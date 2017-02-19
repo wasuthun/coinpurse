@@ -56,11 +56,11 @@ public class CoinUtil {
 
 	 */
 
-	public static List<Coin> filterByCurrency(List<Coin> list, String currency) {
+	public static List<Valuable> filterByCurrency(List<Valuable> list, String currency) {
 
-		List<Coin> filteredCoins = new ArrayList<>();
+		List<Valuable> filteredCoins = new ArrayList<>();
 
-		for (Coin c : list) {
+		for (Valuable c : list) {
 
 			if (c.getCurrency().equals(currency)) {
 
@@ -92,13 +92,13 @@ public class CoinUtil {
 
 
 
-	public static void sortByCurrency(List<Coin> coin) {
+	public static void sortByCurrency(List<Valuable> coin) {
 
-		Collections.sort(coin, new Comparator<Coin>() {
+		Collections.sort(coin, new Comparator<Valuable>() {
 
 			@Override
 
-			public int compare(Coin p1, Coin p2) {
+			public int compare(Valuable p1, Valuable p2) {
 
 				return p1.getCurrency().compareToIgnoreCase(p2.getCurrency());
 
@@ -124,11 +124,11 @@ public class CoinUtil {
 
 	 */
 
-	public static void sumByCurrency(List<Coin> coin) {
+	public static void sumByCurrency(List<Valuable> coin) {
 
 		Map<String, Double> map = new HashMap<>();
 
-		for (Coin c : coin) {
+		for (Valuable c : coin) {
 
 			map.put(c.getCurrency(), map.getOrDefault(c.getCurrency(), 0.0) + c.getValue());
 
@@ -192,7 +192,7 @@ public class CoinUtil {
 
 		System.out.println("Filter coin by currency of " + currency);
 
-		List<Coin> coin = makeInternationalCoins();
+		List<Valuable> coin = makeInternationalCoins();
 
 		int size = coin.size();
 
@@ -200,7 +200,7 @@ public class CoinUtil {
 
 		printList(coin, " ");
 
-		List<Coin> rupees = filterByCurrency(coin, currency);
+		List<Valuable> rupees = filterByCurrency(coin, currency);
 
 		System.out.print("Result: ");
 
@@ -246,9 +246,9 @@ public class CoinUtil {
 
 	// Make a list of coins containing different currencies.
 
-	public static List<Coin> makeInternationalCoins() {
+	public static List<Valuable> makeInternationalCoins() {
 
-		List<Coin> money = new ArrayList<Coin>();
+		List<Valuable> money = new ArrayList<Valuable>();
 
 		money.addAll(makeCoins("Baht", 0.25, 1.0, 2.0, 5.0, 10.0, 10.0));
 
@@ -268,9 +268,9 @@ public class CoinUtil {
 
 	// Make a list of coins using given values.
 
-	public static List<Coin> makeCoins(String currency, double... values) {
+	public static List<Valuable> makeCoins(String currency, double... values) {
 
-		List<Coin> list = new ArrayList<Coin>();
+		List<Valuable> list = new ArrayList<Valuable>();
 
 		for (double value : values)
 
