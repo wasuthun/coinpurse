@@ -16,32 +16,48 @@ package computer.PurseTest;
 
 public class Main {
 
-	// capacity of purse
-
-	private static int CAPACITY = 10;
+	
 
 
+
+    private static final MoneyFactory factory = null;
+
+    
+
+    
 
 	/**
 
-	 * Configure and start the application.
+     * Configure and start the application.
 
-	 * 
+     * @param args not used
 
-	 * @param args
+     */
 
-	 *            not used
+    public static void main( String[] args ) {
 
-	 */
+//TODO follow the steps in the sequence diagram
 
-	public static void main(String[] args) {
+//        // 1. create a Purse
 
-		Purse purse = new Purse(CAPACITY);
+//    	Purse purse = new Purse(10);
 
-		ConsoleDialog consoleDialog = new ConsoleDialog(purse);
+//        // 2. create a ConsoleDialog with a reference to the Purse object
 
-		consoleDialog.run();
+//    	ConsoleDialog console = new ConsoleDialog(purse);
 
-	}
+//        // 3. run the ConsoleDialog
+
+//    	console.run();
+
+    	
+
+    	BankNote c = new BankNote(20, "Baht");
+
+    	System.out.println(c.toString());
+
+
+
+    }
 
 }

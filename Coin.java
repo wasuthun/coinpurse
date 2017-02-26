@@ -7,7 +7,7 @@
  * @author Wasuthun wanaphongthipakorn
  */
 
-public class Coin implements Valuable
+public class Coin 
 {
 	public static final String DEFAULT_CURRENCY = "Baht";
 	/** Value of the coin. */

@@ -88,17 +88,17 @@ public class PurseTest {
 
 		Coin coin3 = new Coin(1);
 
-		assertTrue(purse.insert(coin1));
+		assertTrue(purse.insert((Valuable) coin1));
 
-		assertTrue(purse.insert(coin3));
+		assertTrue(purse.insert((Valuable) coin3));
 
-		assertTrue(purse.insert(coin2));
+		assertTrue(purse.insert((Valuable) coin2));
 
 		assertEquals(3, purse.count());
 
 		// purse is full so insert should fail
 
-		assertFalse(purse.insert(new Coin(1)));
+		assertFalse(purse.insert((Valuable) new Coin(1)));
 
 	}
 
@@ -114,7 +114,7 @@ public class PurseTest {
 
 		Coin fakeCoin = new Coin(0);
 
-		assertFalse(purse.insert(fakeCoin));
+		assertFalse(purse.insert((Valuable) fakeCoin));
 
 	}
 
@@ -128,7 +128,7 @@ public class PurseTest {
 
 		assertFalse(purse.isFull());
 
-		purse.insert(new Coin(1));
+		purse.insert((Valuable) new Coin(1));
 
 		assertTrue(purse.isFull());
 
@@ -142,7 +142,7 @@ public class PurseTest {
 
 			assertFalse(purse.isFull());
 
-			purse.insert(new Coin(k));
+			purse.insert((Valuable) new Coin(k));
 
 		}
 
@@ -150,7 +150,7 @@ public class PurseTest {
 
 		assertTrue(purse.isFull());
 
-		assertFalse(purse.insert(new Coin(5)));
+		assertFalse(purse.insert((Valuable) new Coin(5)));
 
 	}
 
@@ -172,11 +172,11 @@ public class PurseTest {
 
 		Coin coin = new Coin(10);
 
-		assertTrue(purse.insert(coin));
+		assertTrue(purse.insert((Valuable) coin));
 
-		assertTrue(purse.insert(coin)); // should be allowed
+		assertTrue(purse.insert((Valuable) coin)); // should be allowed
 
-		assertTrue(purse.insert(coin)); // should be allowed
+		assertTrue(purse.insert((Valuable) coin)); // should be allowed
 
 	}
 
@@ -194,7 +194,7 @@ public class PurseTest {
 
 			Coin coin = new Coin(value);
 
-			assertTrue(purse.insert(coin));
+			assertTrue(purse.insert((Valuable) coin));
 
 			assertEquals(value, purse.getBalance(), TOL);
 
@@ -228,13 +228,13 @@ public class PurseTest {
 
 		for (int k = 1; k < 10; k = k + 2) {
 
-			assertTrue(purse.insert(new Coin(value)));
+			assertTrue(purse.insert((Valuable) new Coin(value)));
 
 			amount1 += value;
 
 			value = 2 * value;
 
-			assertTrue(purse.insert(new Coin(value)));
+			assertTrue(purse.insert((Valuable) new Coin(value)));
 
 			amount2 += value;
 
@@ -268,7 +268,7 @@ public class PurseTest {
 
 		assertNull(purse.withdraw(1));
 
-		purse.insert(new Coin(20));
+		purse.insert((Valuable) new Coin(20));
 
 		assertNull(purse.withdraw(1));
 
@@ -276,7 +276,7 @@ public class PurseTest {
 
 		assertNull(purse.withdraw(21));
 
-		purse.insert(new Coin(20));
+		purse.insert((Valuable) new Coin(20));
 
 		assertNull(purse.withdraw(30));
 

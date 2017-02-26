@@ -274,7 +274,7 @@ public class CoinUtil {
 
 		for (double value : values)
 
-			list.add(new Coin(value, currency));
+			list.add((Valuable) new Coin(value, currency));
 
 		return list;
 

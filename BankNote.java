@@ -1,65 +1,127 @@
 package computer.PurseTest;
 
-public class BankNote implements Valuable
-{
-	private double value;
-	private String currency;
+
+
+
+
+/**
+
+ * BankNote represents money with a fixed value and currency.
+
+ * 
+
+ * @author Wasuthun wanaphongthipakorn
+
+ * @version 17.2.17
+
+ */
+
+public class BankNote extends AbstractValuable {
+
+//	/**
+
+//	 * I make it static because every time i call this object the serial number
+
+//	 * change too.
+
+//	 */
+
+//	private static long nextSerialNumber = 1000000;
+
+//	/** The serial number of bank note. */
+
 	private long serialNumber;
-	private static long nextserialNumber = 1000000;
-	private static String nextcurrency="Bath";
-	public BankNote(double value){
-		this.value=value;
-		this.currency=nextcurrency;
-		this.serialNumber=nextserialNumber++;
-		
+
+	/**
+
+	 * Receive value and currency from user.
+
+	 * 
+
+	 * @param Recieve
+
+	 *            value of bank note.
+
+	 * @param Recieve
+
+	 *            currency of bank note.
+
+	 */
+
+	public BankNote(double value, String currency) {
+
+		super(value, currency);
+
+		this.serialNumber = 0;
+
 	}
 
-	public BankNote(double value, String currency)
-	{
-		this.value = value;
-		this.currency = currency;
-		this.serialNumber = nextserialNumber;
+
+
+	/**
+
+	 * Receive value and currency from user.
+
+	 * 
+
+	 * @param Recieve
+
+	 *            value of bank note.
+
+	 * @param Recieve
+
+	 *            currency of bank note.
+
+	 */
+
+	public BankNote(double value, String currency, long serialNumber) {
+
+		super(value, currency);
+
+		this.serialNumber = serialNumber;
+
 	}
 
-	@Override
-	public String getCurrency()
-	{
 
-		return this.currency;
-	}
 
-	@Override
-	public double getValue()
-	{
+	/**
 
-		return this.value;
-	}
+	 * Return serial number of the bank note.
 
-	public long getSerial()
-	{
+	 * 
+
+	 * @return Return serial number of the bank note.
+
+	 */
+
+	private long getSerial() {
+
 		return this.serialNumber;
+
 	}
 
-	public boolean equals(Object obj)
-	{
-		if (obj == null)
-		{
-			return false;
-		}
-		if (!obj.getClass().equals(this.getClass()))
-		{
-			return false;
-		}
-		BankNote other = (BankNote) obj;
-		return ((other.getCurrency().equals(this.getCurrency())) && (other.getValue() == this.getValue()));
-	}
-public String toString(){
-	return this.value+"-"+this.currency+" note ["+this.serialNumber+"]";
-}
 
-@Override
-public int compareTo(Valuable p){
-	return (int)Math.signum(this.value-p.getValue());
-}
-	
+
+	/**
+
+	 * Return information of the bank note.
+
+	 * 
+
+	 * @return Return information of the bank note.
+
+	 */
+
+	@Override
+
+	public String toString() {
+
+		return String.format(value + "-%s note [%d]", currency, serialNumber);
+
+//		return String.format("%f-&s note %d", this.value, this.currency, this.serialNumber);
+
+	}
+
+
+
 }
